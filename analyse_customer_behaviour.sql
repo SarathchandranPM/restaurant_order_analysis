@@ -39,3 +39,9 @@ INNER JOIN menu_items mi ON od.item_id = mi.menu_item_id
 GROUP BY item_name
 ORDER BY order_count ASC
 LIMIT 1;
+
+-- Most and least favorite cousines of customers:
+select mi.category, count(mi.category) 
+from order_details od left join menu_items mi
+on od.item_id = mi.menu_item_id
+group by mi.category;
